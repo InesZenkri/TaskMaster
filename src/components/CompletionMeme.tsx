@@ -2,9 +2,9 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const congratsMessages = [
-  { text: "You're crushing it! 💪", img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=300&fit=crop" },
-  { text: "Keep up the great work! 🌟", img: "https://images.unsplash.com/photo-1454486837617-ce8e1ba5ebfe?w=400&h=300&fit=crop" },
-  { text: "Another one bites the dust! 🎯", img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=400&h=300&fit=crop" },
+  { text: "You're crushing it! 💪", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJ6Y2k4Y3Bxa2N1NWF0MXJ5NnBxbWR0Ym8yeWxxaWR1NHJxY2JxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26u4lOMA8JKSnL9Uk/giphy.gif" },
+  { text: "Keep up the great work! 🌟", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJ6Y2k4Y3Bxa2N1NWF0MXJ5NnBxbWR0Ym8yeWxxaWR1NHJxY2JxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26u4lOMA8JKSnL9Uk/giphy.gif" },
+  { text: "Another one bites the dust! 🎯", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJ6Y2k4Y3Bxa2N1NWF0MXJ5NnBxbWR0Ym8yeWxxaWR1NHJxY2JxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26u4lOMA8JKSnL9Uk/giphy.gif" },
 ];
 
 interface CompletionMemeProps {
