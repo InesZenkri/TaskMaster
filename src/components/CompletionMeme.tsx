@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const congratsMessages = [
   { text: "You're crushing it! 💪", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJ6Y2k4Y3Bxa2N1NWF0MXJ5NnBxbWR0Ym8yeWxxaWR1NHJxY2JxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26u4lOMA8JKSnL9Uk/giphy.gif" },
-  { text: "Keep up the great work! 🌟", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJ6Y2k4Y3Bxa2N1NWF0MXJ5NnBxbWR0Ym8yeWxxaWR1NHJxY2JxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26u4lOMA8JKSnL9Uk/giphy.gif" },
-  { text: "Another one bites the dust! 🎯", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJ6Y2k4Y3Bxa2N1NWF0MXJ5NnBxbWR0Ym8yeWxxaWR1NHJxY2JxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26u4lOMA8JKSnL9Uk/giphy.gif" },
+  { text: "Keep up the great work! 🌟", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWRyYnR0M2t4ZWx5ZXdqbXd6ZDZ5Y3Jwd2xxbWRwN2Zya2txYnR6aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/artj92V8o75VPL7AeQ/giphy.gif" },
+  { text: "Another one bites the dust! 🎯", img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXR3ZWU0Mzd1bjlsd2VmaTFjbWkydHp6bjV0dDhraDAxMjZ0a290diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YRuFixSNWFVcXaxpmX/giphy.gif" },
 ];
 
 interface CompletionMemeProps {
