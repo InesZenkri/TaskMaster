@@ -2,10 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const memes = [
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJ6Y2k4Y3Bxa2N1NWF0MXJ5NnBxbWR0Ym8yeWxxaWR1NHJxY2JxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26u4lOMA8JKSnL9Uk/giphy.gif",
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWRyYnR0M2t4ZWx5ZXdqbXd6ZDZ5Y3Jwd2xxbWRwN2Zya2txYnR6aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/artj92V8o75VPL7AeQ/giphy.gif",
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXhyNzcwcXUycG1kYW4ycmljb2h6MzNuaTV4MnEyM3BrYWwyZmVwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QTAVEex4ANH1pcdg16/giphy.gif",
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXR3ZWU0Mzd1bjlsd2VmaTFjbWkydHp6bjV0dDhraDAxMjZ0a290diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YRuFixSNWFVcXaxpmX/giphy.gif",
+  "https://images.unsplash.com/photo-1531747056595-07f6cbbe10ad?w=500&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=500&h=500&fit=crop",
 ];
 
 export function MemeDisplay() {
