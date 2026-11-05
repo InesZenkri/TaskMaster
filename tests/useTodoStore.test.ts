@@ -14,7 +14,7 @@ class MemoryStorage {
 
 (globalThis as Record<string, unknown>).localStorage = new MemoryStorage();
 
-const { useTodoStore, syncTodosWithUser } = await import('./useTodoStore.ts');
+const { useTodoStore, syncTodosWithUser } = await import('../src/store/useTodoStore.ts');
 
 const storage = () => globalThis.localStorage as unknown as MemoryStorage;
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0));
