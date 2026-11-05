@@ -9,6 +9,7 @@ import {
   onAuthStateChanged,
   auth
 } from '../firebase';
+import { syncTodosWithUser } from './useTodoStore.ts';
 
 interface AuthStore {
   user: User | null;
@@ -53,3 +54,9 @@ export const useAuthStore = create<AuthStore>()(
     { name: 'auth-storage' }
   )
 );
+// Keep the task list scoped to whoever is signed in. This also covers the
+// persisted session being rehydrated on page load.
+useAuthStore.subscribe((state) => {
+  syncTodosWithUser(state.user?.id ?? null);
+});
+syncTodosWithUser(useAuthStore.getState().user?.id ?? null);

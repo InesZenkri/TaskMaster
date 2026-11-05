@@ -1,6 +1,7 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { Todo } from '../types/todo';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import { getTodoStorageUser, setTodoStorageUser, todoStorage } from './todoStorage.ts';
+import type { Todo } from '../types/todo';
 import toast from 'react-hot-toast';
 
 interface TodoStore {
@@ -70,6 +71,24 @@ export const useTodoStore = create<TodoStore>()(
           ),
         })),
     }),
-    { name: 'todo-storage' }
+    {
+      name: 'todo-storage',
+      storage: createJSONStorage(() => todoStorage),
+    }
   )
 );
+
+// Point the store at the signed-in user's task list. The visible list is
+// reset on every switch so one user's tasks never bleed into another's
+// session; the previous user's stored tasks stay untouched under their key.
+// The old shared 'todo-storage' entry is left in place but no longer read,
+// because its owner cannot be determined.
+export function syncTodosWithUser(userId: string | null): void {
+  if (getTodoStorageUser() === userId) return;
+  // Pause persistence while clearing the visible list, so the outgoing user's
+  // stored tasks are not overwritten and the incoming user's are not clobbered.
+  setTodoStorageUser(null);
+  useTodoStore.setState({ todos: [], showArchive: false });
+  setTodoStorageUser(userId);
+  if (userId) void useTodoStore.persist.rehydrate();
+}
