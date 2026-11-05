@@ -1,6 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { User } from '../types/todo';
+import type { User } from '../types/todo';
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,6 +8,7 @@ import {
   onAuthStateChanged,
   auth
 } from '../firebase';
+import { syncTodosWithUser } from './useTodoStore.ts';
 
 interface AuthStore {
   user: User | null;
@@ -20,8 +20,7 @@ interface AuthStore {
 }
 
 export const useAuthStore = create<AuthStore>()(
-  persist(
-    (set) => ({
+  (set) => ({
       user: null,
       loading: true,
       signUp: async (email, password) => {
@@ -49,7 +48,24 @@ export const useAuthStore = create<AuthStore>()(
       resetPassword: async (email) => {
         await sendPasswordResetEmail(auth, email);
       },
-    }),
-    { name: 'auth-storage' }
-  )
+    })
 );
+// Keep the task list scoped to whoever is signed in. This also covers the
+// Firebase session being restored on page load.
+useAuthStore.subscribe((state) => {
+  syncTodosWithUser(state.user?.id ?? null);
+});
+syncTodosWithUser(useAuthStore.getState().user?.id ?? null);
+
+// Firebase, not a cached auth-storage user, owns the restored session.
+onAuthStateChanged(auth, (user) => {
+  useAuthStore.setState({
+    user: user ? {
+      id: user.uid,
+      email: user.email!,
+      displayName: user.displayName || undefined,
+      photoURL: user.photoURL || undefined,
+    } : null,
+    loading: false,
+  });
+});
